@@ -11,7 +11,7 @@
 // bytes, so it does nothing time- or random-dependent: a plain copy plus
 // the deterministic dossier build.
 
-import { cpSync, existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-app.ts';
@@ -53,7 +53,12 @@ function main() {
   const dossierPath = join(outputDir, 'dossier.json');
   writeFileSync(dossierPath, first);
   const bytes = statSync(dossierPath).size;
-  console.log(`wrote ${dossierPath} (${bytes} bytes)`);
+  // How many screenshots went in — a quick sanity line for the builder.
+  const shotDir = join(outputDir, 'screenshots');
+  const shotCount = existsSync(shotDir)
+    ? readdirSync(shotDir).filter((f) => /\.(png|jpe?g)$/i.test(f)).length
+    : 0;
+  console.log(`wrote ${dossierPath} (${bytes} bytes, ${shotCount} screenshots)`);
 }
 
 main();
