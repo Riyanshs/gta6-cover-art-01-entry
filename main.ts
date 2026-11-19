@@ -9,7 +9,8 @@
 //
 // The program runs twice in the grader and both runs must write the same
 // bytes, so it does nothing time- or random-dependent: a plain copy plus
-// the deterministic dossier build.
+// the deterministic dossier build. The log line at the end is for the
+// builder only — it never lands in the dossier or the output files.
 
 import { cpSync, existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
