@@ -1,0 +1,153 @@
+/* Vice Cover Studio — dark neon editor chrome. */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #160a24;
+  color: #f5efff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.45;
+}
+
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px 14px;
+  background: linear-gradient(100deg, #ff2e88 0%, #7b2ff7 55%, #00c2ff 100%);
+}
+
+#app-title {
+  margin: 0;
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: 34px;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
+}
+
+#tagline { margin: 2px 0 0; font-weight: bold; color: #ffe9a8; }
+#judge-greeting { margin: 6px 0 0; font-style: italic; color: #fff; }
+
+#offline-badge {
+  flex: none;
+  margin-top: 6px;
+  padding: 6px 10px;
+  border: 2px solid #ffe9a8;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffe9a8;
+  white-space: nowrap;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+  gap: 20px;
+  padding: 20px 24px;
+  align-items: start;
+}
+
+#preview-section { position: sticky; top: 12px; }
+
+#cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 3px solid #ff2e88;
+  border-radius: 6px;
+  cursor: grab;
+  touch-action: none;
+}
+
+#cover:active { cursor: grabbing; }
+
+#status { margin: 10px 0 0; color: #cbb8ff; }
+
+#controls { display: grid; gap: 14px; }
+
+fieldset {
+  margin: 0;
+  padding: 12px 14px 14px;
+  border: 1px solid #4a2a7a;
+  border-radius: 8px;
+  background: #221040;
+}
+
+legend {
+  padding: 0 6px;
+  color: #ffe14d;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+label { display: block; margin: 6px 0; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.check { display: flex; align-items: center; gap: 6px; }
+.hint { margin: 8px 0 0; font-size: 13px; color: #cbb8ff; }
+
+button {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: #ff2e88;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover { background: #ff5ea3; }
+button:active { transform: translateY(1px); }
+
+input[type="text"] {
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid #4a2a7a;
+  border-radius: 6px;
+  background: #160a24;
+  color: #fff;
+  font-size: 15px;
+}
+
+input[type="range"] { width: 100%; accent-color: #ff2e88; }
+
+.file-label {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #00c2ff;
+  color: #06222e;
+  font-weight: bold;
+  cursor: pointer;
+}
+.file-label input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+
+.panel-box {
+  padding: 8px 10px;
+  margin: 8px 0;
+  border: 1px solid #4a2a7a;
+  border-radius: 6px;
+  background: #1a0c33;
+}
+.panel-box.selected { border-color: #ffe14d; box-shadow: 0 0 0 1px #ffe14d; }
+.panel-box h3 { margin: 0 0 6px; font-size: 14px; color: #ffe9a8; }
+.panel-box label { margin: 4px 0; font-size: 13px; }
+
+footer {
+  padding: 4px 24px 24px;
+  color: #9d86c9;
+  font-size: 13px;
+}
+
+/* Cover-only view: hide the editor chrome, show the canvas full-viewport. */
+body.shot-cover { background: #fff; }
+body.shot-cover .masthead,
+body.shot-cover #controls,
+body.shot-cover footer,
+body.shot-cover #status { display: none; }
+body.shot-cover main { display: block; padding: 0; }
+body.shot-cover #preview-section { position: static; }
+body.shot-cover #cover { width: 100vw; height: 100vh; border: 0; border-radius: 0; }

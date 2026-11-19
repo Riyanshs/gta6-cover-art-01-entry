@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — Your photo. Your caption. A Vice City sunset.</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <h1 id="app-title">VICE COVER STUDIO</h1>
+    <p id="tagline">Your photo. Your caption. A Vice City sunset.</p>
+    <p id="judge-greeting">Hello, judge! Thanks for looking: this little studio was made with care, just for you.</p>
+  </div>
+  <span id="offline-badge">100% OFFLINE — photos never leave this machine</span>
+</header>
+
+<main>
+  <section id="preview-section" aria-label="Cover preview">
+    <canvas id="cover" width="880" height="495"></canvas>
+    <p id="status" role="status">Load a photo or tap a sample to begin.</p>
+  </section>
+
+  <section id="controls" aria-label="Cover controls">
+    <fieldset id="photos-field">
+      <legend>1 · Photos</legend>
+      <label class="file-label">Choose photos
+        <input id="photo-input" type="file" accept="image/*" multiple>
+      </label>
+      <div class="row">
+        <button id="sample-pier" type="button">Sample: Pier</button>
+        <button id="sample-boulevard" type="button">Sample: Boulevard</button>
+      </div>
+      <label class="check"><input id="fill-all" type="checkbox"> Fill all panels with one photo</label>
+      <p class="hint">Tap a panel on the preview to select it, then drag the photo inside it.</p>
+    </fieldset>
+
+    <fieldset id="layout-field">
+      <legend>2 · Layout</legend>
+      <label><input type="radio" name="layout" value="strip" checked> Sunset Strip — hero + two</label>
+      <label><input type="radio" name="layout" value="triptych"> Triptych — three tall</label>
+      <label><input type="radio" name="layout" value="duo"> Neon Duo — two wide</label>
+      <label><input type="radio" name="layout" value="solo"> Solo — one big frame</label>
+    </fieldset>
+
+    <fieldset id="grade-field">
+      <legend>3 · Colour grade</legend>
+      <label><input type="radio" name="grade" value="sunset" checked> Vice Sunset</label>
+      <label><input type="radio" name="grade" value="neon"> Neon Nights</label>
+      <label><input type="radio" name="grade" value="dusk"> Palm Dusk</label>
+    </fieldset>
+
+    <fieldset id="panels-field">
+      <legend>4 · Each panel</legend>
+      <div id="panel-boxes"></div>
+    </fieldset>
+
+    <fieldset id="caption-field">
+      <legend>5 · Caption</legend>
+      <label>Title <input id="title-input" type="text" value="Sunset Heist" maxlength="40"></label>
+      <label>Subtitle <input id="subtitle-input" type="text" value="Vice City • 2026" maxlength="60"></label>
+      <label class="check"><input id="judge-note" type="checkbox" checked> Sign it for the judge on the cover</label>
+    </fieldset>
+
+    <fieldset id="export-field">
+      <legend>6 · Export PNG</legend>
+      <div class="row" id="size-row">
+        <label><input type="radio" name="size" value="square" checked> 1080 × 1080</label>
+        <label><input type="radio" name="size" value="portrait"> 1080 × 1350</label>
+        <label><input type="radio" name="size" value="wide"> 1920 × 1080</label>
+      </div>
+      <div class="row">
+        <button id="export-square" type="button">PNG 1080×1080</button>
+        <button id="export-portrait" type="button">PNG 1080×1350</button>
+        <button id="export-wide" type="button">PNG 1920×1080</button>
+      </div>
+    </fieldset>
+  </section>
+</main>
+
+<footer>
+  <p>Fan-made cover studio. No Rockstar Games logo, artwork or fonts — every
+  sunset, palm and letter is drawn by this app's own code. Sample photos are
+  free to use. Your photos stay on your machine.</p>
+</footer>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
