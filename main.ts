@@ -55,6 +55,7 @@ function main() {
   writeFileSync(dossierPath, first);
   const bytes = statSync(dossierPath).size;
   // How many screenshots went in — a quick sanity line for the builder.
+  // (console.log only: this line never lands in the dossier or the output.)
   const shotDir = join(outputDir, 'screenshots');
   const shotCount = existsSync(shotDir)
     ? readdirSync(shotDir).filter((f) => /\.(png|jpe?g)$/i.test(f)).length
